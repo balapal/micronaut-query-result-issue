@@ -21,4 +21,11 @@ public interface BookRepository extends ReactiveStreamsCrudRepository<Book, Inte
             SELECT 1 AS id, 'Title #2' AS title
             """)
     Flux<BookDto> getBooksAsDto();
+
+    @Query("""
+            SELECT 1 AS id_renamed, 'Title #1' AS title
+            UNION ALL
+            SELECT 1 AS id_renamed, 'Title #2' AS title
+            """)
+    Flux<BookDto2> getBooksAsDto2();
 }

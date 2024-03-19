@@ -27,4 +27,12 @@ class BookRepositoryTest {
                 .assertNext(book -> assertEquals("Title #2", book.title()))
                 .verifyComplete();
     }
+
+    @Test
+    void testGetBooksDto2() {
+        StepVerifier.create(bookRepository.getBooksAsDto2())
+                .assertNext(book -> assertEquals("Title #1", book.title()))
+                .assertNext(book -> assertEquals("Title #2", book.title()))
+                .verifyComplete();
+    }
 }
